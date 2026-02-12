@@ -3,691 +3,365 @@
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Paseo De Lipa - Eco-Smart Homes in Lipa City</title>
+  <title>Paseo de Lipa - Smart, Sustainable Living</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Source+Sans+3:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
   <script src="/_sdk/element_sdk.js"></script>
   <script src="/_sdk/data_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=Nunito+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
   <style>
     body {
       box-sizing: border-box;
     }
-    
-    :root {
-      --color-background: #FAF7F2;
-      --color-surface: #FFFFFF;
-      --color-text: #3D3D3D;
-      --color-primary: #2D5A3D;
-      --color-secondary: #C4A77D;
-    }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    html, body {
-      height: 100%;
-      width: 100%;
-    }
-    
-    body {
-      font-family: 'Source Sans 3', sans-serif;
-      background-color: var(--color-background);
-      color: var(--color-text);
-    }
-    
     .font-display {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Cormorant Garamond', serif;
     }
-    
-    .main-wrapper {
-      width: 100%;
-      height: 100%;
-      overflow-y: auto;
-      overflow-x: hidden;
+    .font-body {
+      font-family: 'Nunito Sans', sans-serif;
     }
-    
-    .btn-primary {
-      background-color: var(--color-primary);
-      color: white;
-      padding: 16px 32px;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: inline-block;
-      text-decoration: none;
+    .hero-gradient {
+      background: linear-gradient(135deg, #f8f6f3 0%, #e8e4de 50%, #d4cfc6 100%);
     }
-    
-    .btn-primary:hover {
-      background-color: #1e4029;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(45, 90, 61, 0.3);
-    }
-    
-    .btn-secondary {
-      background-color: var(--color-secondary);
-      color: white;
-      padding: 14px 28px;
-      border-radius: 8px;
-      font-weight: 600;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    
-    .btn-secondary:hover {
-      background-color: #b39668;
-      transform: translateY(-2px);
-    }
-    
-    .section-padding {
-      padding: 80px 20px;
-    }
-    
-    @media (max-width: 768px) {
-      .section-padding {
-        padding: 50px 16px;
-      }
-    }
-    
-    .form-input {
-      width: 100%;
-      padding: 16px 20px;
-      border: 2px solid #E8E4DE;
-      border-radius: 8px;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      background: white;
-      font-family: 'Source Sans 3', sans-serif;
-    }
-    
-    .form-input:focus {
-      outline: none;
-      border-color: var(--color-primary);
-      box-shadow: 0 0 0 4px rgba(45, 90, 61, 0.1);
-    }
-    
-    .form-label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 600;
-      color: var(--color-text);
-    }
-    
-    .card {
-      background: var(--color-surface);
-      border-radius: 16px;
-      overflow: hidden;
+    .card-shadow {
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+    .btn-primary {
       transition: all 0.3s ease;
     }
-    
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     }
-    
-    .highlight-card {
-      background: var(--color-surface);
-      padding: 30px 24px;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-      transition: all 0.3s ease;
+    .fade-in {
+      animation: fadeIn 0.6s ease-out forwards;
     }
-    
-    .highlight-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    
-    .eco-card {
-      background: linear-gradient(135deg, #f0f7f1 0%, #e8f5e9 100%);
-      padding: 40px 30px;
-      border-radius: 16px;
-      border-left: 5px solid var(--color-primary);
+    .modal-backdrop {
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
     }
-    
-    .benefit-item {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 16px 0;
-      border-bottom: 1px solid #E8E4DE;
+    .toast {
+      animation: slideIn 0.3s ease-out forwards;
     }
-    
-    .benefit-item:last-child {
-      border-bottom: none;
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(100%); }
+      to { opacity: 1; transform: translateX(0); }
     }
-    
-    .image-frame {
-      background: linear-gradient(135deg, #E8E4DE 0%, #D4CFC6 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #8B8680;
-      font-size: 0.9rem;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .image-frame::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 24 24' fill='none' stroke='%23a09a94' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='18' height='18' rx='2' ry='2'/%3E%3Ccircle cx='8.5' cy='8.5' r='1.5'/%3E%3Cpolyline points='21 15 16 10 5 21'/%3E%3C/svg%3E") center center no-repeat;
-      opacity: 0.5;
-    }
-    
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    .animate-fadeInUp {
-      animation: fadeInUp 0.8s ease forwards;
-    }
-    
-    .delay-100 { animation-delay: 0.1s; }
-    .delay-200 { animation-delay: 0.2s; }
-    .delay-300 { animation-delay: 0.3s; }
-    .delay-400 { animation-delay: 0.4s; }
   </style>
   <style>@view-transition { navigation: auto; }</style>
  </head>
- <body class="h-full">
-  <div class="main-wrapper"><!-- Navigation -->
-   <nav style="background: var(--color-surface); box-shadow: 0 2px 10px rgba(0,0,0,0.05);" class="sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-5 py-4 flex items-center justify-between">
-     <div class="flex items-center gap-3">
-      <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: var(--color-primary);">
-       <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-white" fill="none" viewbox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-       </svg>
-      </div>
-      <div>
-       <h1 class="font-display font-bold text-xl" style="color: var(--color-primary);">Paseo De Lipa</h1>
-       <p class="text-xs" style="color: var(--color-secondary);">Eco-Smart Living</p>
-      </div>
-     </div><a href="#contact-form" class="btn-primary hidden md:inline-block" style="padding: 12px 24px; font-size: 0.95rem;">Get Details</a>
-    </div>
+ <body class="h-full font-body">
+  <div id="app-wrapper" class="w-full h-full overflow-auto" style="background-color: #f8f6f3;"><!-- Navigation -->
+   <nav class="w-full px-6 py-4 flex justify-between items-center" style="background-color: #f8f6f3;">
+    <div class="flex items-center gap-3">
+     <svg width="40" height="40" viewbox="0 0 40 40" fill="none"><rect width="40" height="40" rx="8" fill="#2d5a47" /> <path d="M20 8L32 16V32H8V16L20 8Z" stroke="#c9a86c" stroke-width="2" fill="none" /> <rect x="16" y="22" width="8" height="10" stroke="#c9a86c" stroke-width="1.5" fill="none" />
+     </svg><span class="font-display text-xl font-semibold" style="color: #2d5a47;">Paseo de Lipa</span>
+    </div><button id="nav-cta" class="btn-primary px-6 py-2 rounded-full text-sm font-semibold text-white" style="background-color: #2d5a47;"> Inquire Now </button>
    </nav><!-- Hero Section -->
-   <section class="relative min-h-[600px] md:min-h-[700px] flex items-center" style="background: linear-gradient(135deg, #FAF7F2 0%, #F0EDE6 100%);">
-    <div class="absolute inset-0 image-frame" style="opacity: 0.3;"></div>
-    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(45, 90, 61, 0.08) 0%, rgba(196, 167, 125, 0.08) 100%);"></div>
-    <div class="relative z-10 max-w-7xl mx-auto px-5 py-20 grid md:grid-cols-2 gap-12 items-center">
-     <div class="animate-fadeInUp">
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6" style="background: rgba(45, 90, 61, 0.1); color: var(--color-primary);">
-       <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewbox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /> <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-       </svg><span class="font-semibold text-sm">Lipa City, Batangas</span>
-      </div>
-      <h1 id="hero-headline" class="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6" style="color: var(--color-text);">Own a Modern, Eco-Smart Home at Paseo De Lipa</h1>
-      <p id="hero-subheadline" class="text-xl md:text-2xl mb-8 leading-relaxed" style="color: #666;">Save up to 30% on electricity and 35% on water bills with sustainable home features</p>
-      <div class="flex flex-wrap gap-4"><a href="#contact-form" id="hero-button" class="btn-primary">Get Full Details</a> <a href="#house-models" class="btn-secondary">View House Models</a>
-      </div>
-      <div class="flex items-center gap-6 mt-10 pt-8" style="border-top: 1px solid #E8E4DE;">
-       <div class="text-center">
-        <div class="font-display text-3xl font-bold" style="color: var(--color-primary);">
-         30%
-        </div>
-        <div class="text-sm" style="color: #888;">
-         Electric Savings
-        </div>
-       </div>
-       <div class="w-px h-12" style="background: #E8E4DE;"></div>
-       <div class="text-center">
-        <div class="font-display text-3xl font-bold" style="color: var(--color-primary);">
-         35%
-        </div>
-        <div class="text-sm" style="color: #888;">
-         Water Savings
-        </div>
-       </div>
-       <div class="w-px h-12" style="background: #E8E4DE;"></div>
-       <div class="text-center">
-        <div class="font-display text-3xl font-bold" style="color: var(--color-primary);">
-         100%
-        </div>
-        <div class="text-sm" style="color: #888;">
-         Eco-Friendly
-        </div>
-       </div>
+   <section class="hero-gradient w-full px-6 py-16 md:py-24">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+     <div class="fade-in">
+      <h1 id="headline" class="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6" style="color: #2d5a47;">Paseo de Lipa – Smart, Sustainable Living in Lipa City</h1>
+      <p id="subheadline" class="text-lg md:text-xl mb-8 leading-relaxed" style="color: #5a6b5e;">A thoughtfully planned residential community designed for comfort, savings, and long-term value.</p><button id="hero-cta" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold text-white" style="background-color: #c9a86c;"> Inquire Now </button>
+     </div>
+     <div class="fade-in" style="animation-delay: 0.2s;">
+      <div class="rounded-2xl overflow-hidden card-shadow aspect-[4/3]" style="background: linear-gradient(145deg, #e8e4de, #d4cfc6);">
+       <svg class="w-full h-full" viewbox="0 0 400 300" fill="none"><rect width="400" height="300" fill="#e8e4de" /> <path d="M50 250L200 100L350 250" stroke="#2d5a47" stroke-width="3" fill="none" opacity="0.3" /> <rect x="150" y="150" width="100" height="100" stroke="#2d5a47" stroke-width="2" fill="none" opacity="0.3" /> <circle cx="320" cy="80" r="30" fill="#c9a86c" opacity="0.4" /> <path d="M80 280Q120 200 160 280Q200 200 240 280Q280 200 320 280" stroke="#2d5a47" stroke-width="2" fill="none" opacity="0.2" /> <text x="200" y="160" text-anchor="middle" fill="#2d5a47" font-size="14" opacity="0.5">
+         Premium Home Visualization
+        </text>
+       </svg>
       </div>
      </div>
-     <div class="relative animate-fadeInUp delay-200"><img src="https://i0.wp.com/www.cbdi.com.ph/wp-content/uploads/2025/11/affordable-house-and-lot-for-sale-in-batangas-city-6.jpg?w=1639&amp;ssl=1" alt="Paseo De Lipa Houses" loading="lazy" class="rounded-2xl h-[400px] md:h-[500px] w-full object-cover" style="box-shadow: 0 25px 60px rgba(0,0,0,0.15);" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.style.display='none';">
-     </div>
-     <div class="absolute -bottom-6 -left-6 bg-white p-5 rounded-xl shadow-xl hidden md:block">
-      <div class="flex items-center gap-3">
-       <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: rgba(45, 90, 61, 0.1);"><span class="text-2xl">🏡</span>
+    </div>
+   </section><!-- Why Choose Section -->
+   <section class="w-full px-6 py-16" style="background-color: #ffffff;">
+    <div class="max-w-6xl mx-auto">
+     <h2 id="benefits-title" class="font-display text-3xl md:text-4xl font-bold text-center mb-12" style="color: #2d5a47;">Why Choose Paseo de Lipa</h2>
+     <div class="grid md:grid-cols-3 gap-8">
+      <div class="text-center p-8 rounded-2xl card-shadow" style="background-color: #f8f6f3;">
+       <div class="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center" style="background-color: #2d5a47;">
+        <svg width="32" height="32" viewbox="0 0 32 32" fill="none"><path d="M16 4L28 12V28H4V12L16 4Z" stroke="#c9a86c" stroke-width="2" fill="none" /> <circle cx="16" cy="18" r="4" fill="#c9a86c" />
+        </svg>
        </div>
-       <div>
-        <div class="font-bold" style="color: var(--color-text);">
-         Pre-Selling Now
-        </div>
-        <div class="text-sm" style="color: var(--color-secondary);">
-         Limited Units Available
-        </div>
+       <h3 class="font-display text-xl font-semibold mb-3" style="color: #2d5a47;">Strategic Location</h3>
+       <p style="color: #5a6b5e;">Ideally situated in the heart of Lipa City, Batangas with easy access to major roads and establishments.</p>
+      </div>
+      <div class="text-center p-8 rounded-2xl card-shadow" style="background-color: #f8f6f3;">
+       <div class="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center" style="background-color: #2d5a47;">
+        <svg width="32" height="32" viewbox="0 0 32 32" fill="none"><circle cx="12" cy="12" r="4" stroke="#c9a86c" stroke-width="2" /> <circle cx="20" cy="12" r="4" stroke="#c9a86c" stroke-width="2" /> <circle cx="16" cy="22" r="3" stroke="#c9a86c" stroke-width="2" /> <path d="M8 28C8 24 12 22 16 22C20 22 24 24 24 28" stroke="#c9a86c" stroke-width="2" />
+        </svg>
+       </div>
+       <h3 class="font-display text-xl font-semibold mb-3" style="color: #2d5a47;">Perfect for Families</h3>
+       <p style="color: #5a6b5e;">Ideal for growing families and first-time homebuyers seeking a peaceful suburban lifestyle.</p>
+      </div>
+      <div class="text-center p-8 rounded-2xl card-shadow" style="background-color: #f8f6f3;">
+       <div class="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center" style="background-color: #2d5a47;">
+        <svg width="32" height="32" viewbox="0 0 32 32" fill="none"><path d="M16 4L20 12H28L22 18L24 26L16 22L8 26L10 18L4 12H12L16 4Z" stroke="#c9a86c" stroke-width="2" fill="none" />
+        </svg>
+       </div>
+       <h3 class="font-display text-xl font-semibold mb-3" style="color: #2d5a47;">Master-Planned</h3>
+       <p style="color: #5a6b5e;">A secure, peaceful, and thoughtfully designed community built for long-term value.</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Model Units Section -->
+   <section class="w-full px-6 py-16" style="background-color: #f8f6f3;">
+    <div class="max-w-6xl mx-auto">
+     <h2 id="models-title" class="font-display text-3xl md:text-4xl font-bold text-center mb-4" style="color: #2d5a47;">Choose Your Ideal Home</h2>
+     <p class="text-center mb-12 max-w-2xl mx-auto" style="color: #5a6b5e;">Discover our carefully designed model units, each crafted to meet the needs of modern Filipino families.</p>
+     <div class="grid md:grid-cols-2 gap-8"><!-- Model Unit 1 -->
+      <div class="rounded-2xl overflow-hidden card-shadow" style="background-color: #ffffff;">
+       <div class="aspect-[16/10]" style="background: linear-gradient(145deg, #e8e4de, #d4cfc6);">
+        <svg class="w-full h-full" viewbox="0 0 400 250" fill="none"><rect width="400" height="250" fill="#e8e4de" /> <rect x="100" y="80" width="200" height="120" stroke="#2d5a47" stroke-width="2" fill="none" opacity="0.4" /> <path d="M100 80L200 30L300 80" stroke="#2d5a47" stroke-width="2" fill="none" opacity="0.4" /> <rect x="170" y="130" width="60" height="70" stroke="#2d5a47" stroke-width="1.5" fill="none" opacity="0.4" /> <rect x="120" y="100" width="40" height="40" stroke="#2d5a47" stroke-width="1.5" fill="none" opacity="0.4" /> <rect x="240" y="100" width="40" height="40" stroke="#2d5a47" stroke-width="1.5" fill="none" opacity="0.4" /> <text x="200" y="230" text-anchor="middle" fill="#2d5a47" font-size="12" opacity="0.5">
+          Model Unit Visualization
+         </text>
+        </svg>
+       </div>
+       <div class="p-8">
+        <h3 class="font-display text-2xl font-semibold mb-4" style="color: #2d5a47;">Model Unit 1</h3>
+        <ul class="space-y-3 mb-6">
+         <li class="flex items-start gap-3">
+          <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="#c9a86c" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg><span style="color: #5a6b5e;">Modern contemporary home design</span></li>
+         <li class="flex items-start gap-3">
+          <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="#c9a86c" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg><span style="color: #5a6b5e;">Well-planned layout for growing families</span></li>
+         <li class="flex items-start gap-3">
+          <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="#c9a86c" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg><span style="color: #5a6b5e;">Bright interiors and efficient space use</span></li>
+        </ul><button class="request-details-btn btn-primary w-full py-3 rounded-full font-semibold border-2" style="color: #2d5a47; border-color: #2d5a47; background: transparent;" data-model="Model Unit 1"> Request Details </button>
+       </div>
+      </div><!-- Model Unit 2 -->
+      <div class="rounded-2xl overflow-hidden card-shadow" style="background-color: #ffffff;">
+       <div class="aspect-[16/10]" style="background: linear-gradient(145deg, #e8e4de, #d4cfc6);">
+        <svg class="w-full h-full" viewbox="0 0 400 250" fill="none"><rect width="400" height="250" fill="#e8e4de" /> <rect x="80" y="90" width="240" height="110" stroke="#2d5a47" stroke-width="2" fill="none" opacity="0.4" /> <path d="M80 90L200 40L320 90" stroke="#2d5a47" stroke-width="2" fill="none" opacity="0.4" /> <rect x="160" y="130" width="80" height="70" stroke="#2d5a47" stroke-width="1.5" fill="none" opacity="0.4" /> <rect x="100" y="110" width="50" height="50" stroke="#2d5a47" stroke-width="1.5" fill="none" opacity="0.4" /> <rect x="250" y="110" width="50" height="50" stroke="#2d5a47" stroke-width="1.5" fill="none" opacity="0.4" /> <text x="200" y="230" text-anchor="middle" fill="#2d5a47" font-size="12" opacity="0.5">
+          Model Unit Visualization
+         </text>
+        </svg>
+       </div>
+       <div class="p-8">
+        <h3 class="font-display text-2xl font-semibold mb-4" style="color: #2d5a47;">Model Unit 2</h3>
+        <ul class="space-y-3 mb-6">
+         <li class="flex items-start gap-3">
+          <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="#c9a86c" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg><span style="color: #5a6b5e;">Spacious and functional home model</span></li>
+         <li class="flex items-start gap-3">
+          <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="#c9a86c" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg><span style="color: #5a6b5e;">Ideal for comfort and everyday living</span></li>
+         <li class="flex items-start gap-3">
+          <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="#c9a86c" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg><span style="color: #5a6b5e;">Designed for long-term home value</span></li>
+        </ul><button class="request-details-btn btn-primary w-full py-3 rounded-full font-semibold border-2" style="color: #2d5a47; border-color: #2d5a47; background: transparent;" data-model="Model Unit 2"> Request Details </button>
        </div>
       </div>
      </div>
     </div>
-   </section>
-  </div> <!-- Lead Capture Form Section -->
-  <section id="contact-form" class="section-padding" style="background: var(--color-primary);">
-   <div class="max-w-4xl mx-auto">
-    <div class="text-center mb-10">
-     <h2 id="form-headline" class="font-display text-3xl md:text-4xl font-bold text-white mb-4">Get Exclusive Pricing &amp; Availability</h2>
-     <p class="text-lg" style="color: rgba(255,255,255,0.8);">Fill out the form below and we'll send you the complete brochure</p>
+   </section><!-- Sustainable Living Section -->
+   <section class="w-full px-6 py-16" style="background-color: #2d5a47;">
+    <div class="max-w-6xl mx-auto">
+     <h2 id="sustainable-title" class="font-display text-3xl md:text-4xl font-bold text-center mb-4" style="color: #ffffff;">Built for Sustainable Living</h2>
+     <p class="text-center mb-12 max-w-2xl mx-auto" style="color: #a8c4b5;">Enjoy modern conveniences while reducing your environmental footprint and monthly bills.</p>
+     <div class="grid md:grid-cols-2 gap-8"><!-- Solar Panel Feature -->
+      <div class="p-8 rounded-2xl" style="background-color: rgba(255,255,255,0.1);">
+       <div class="flex items-start gap-6">
+        <div class="w-20 h-20 flex-shrink-0 rounded-xl flex items-center justify-center" style="background-color: #c9a86c;">
+         <svg width="48" height="48" viewbox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="10" stroke="#2d5a47" stroke-width="2.5" /> <path d="M24 8V4M24 44V40M40 24H44M4 24H8M35.3 12.7L38 10M10 38L12.7 35.3M35.3 35.3L38 38M10 10L12.7 12.7" stroke="#2d5a47" stroke-width="2.5" stroke-linecap="round" /> <rect x="16" y="28" width="16" height="12" rx="1" stroke="#2d5a47" stroke-width="2" /> <path d="M20 28V32M24 28V32M28 28V32" stroke="#2d5a47" stroke-width="1.5" />
+         </svg>
+        </div>
+        <div>
+         <div class="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-3" style="background-color: #c9a86c; color: #2d5a47;">
+          FREE INCLUSION
+         </div>
+         <h3 class="font-display text-xl font-semibold mb-2" style="color: #ffffff;">Net-Metered Solar Panel System</h3>
+         <p class="mb-3" style="color: #a8c4b5;">Harness the power of the sun to significantly reduce your electricity costs.</p>
+         <p class="text-lg font-semibold" style="color: #c9a86c;">Up to 30% savings on electricity bills</p>
+        </div>
+       </div>
+      </div><!-- Water Harvesting Feature -->
+      <div class="p-8 rounded-2xl" style="background-color: rgba(255,255,255,0.1);">
+       <div class="flex items-start gap-6">
+        <div class="w-20 h-20 flex-shrink-0 rounded-xl flex items-center justify-center" style="background-color: #c9a86c;">
+         <svg width="48" height="48" viewbox="0 0 48 48" fill="none"><path d="M24 8C24 8 12 20 12 28C12 34.627 17.373 40 24 40C30.627 40 36 34.627 36 28C36 20 24 8 24 8Z" stroke="#2d5a47" stroke-width="2.5" /> <path d="M20 30C20 32.209 21.791 34 24 34" stroke="#2d5a47" stroke-width="2" stroke-linecap="round" /> <path d="M18 24L22 20M26 24L30 20" stroke="#2d5a47" stroke-width="1.5" stroke-linecap="round" />
+         </svg>
+        </div>
+        <div>
+         <div class="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-3" style="background-color: #c9a86c; color: #2d5a47;">
+          ECO-FRIENDLY
+         </div>
+         <h3 class="font-display text-xl font-semibold mb-2" style="color: #ffffff;">Rainwater &amp; Freshwater Harvesting Tank</h3>
+         <p class="mb-3" style="color: #a8c4b5;">Sustainable water management system for everyday household needs.</p>
+         <p class="text-lg font-semibold" style="color: #c9a86c;">Up to 35% savings on water bills</p>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="mt-8 p-6 rounded-2xl text-center" style="background-color: rgba(255,255,255,0.05);">
+      <p class="text-lg" style="color: #a8c4b5;">
+       <svg class="inline w-5 h-5 mr-2" fill="#c9a86c" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+       </svg> Designed for energy efficiency and future savings — reducing your carbon footprint while maximizing home value.</p>
+     </div>
     </div>
-    <div class="bg-white rounded-2xl p-8 md:p-10 shadow-2xl">
-     <form id="lead-form" class="space-y-6">
-      <div><label for="full-name" class="form-label">Full Name</label> <input type="text" id="full-name" class="form-input" placeholder="Enter your full name">
+   </section><!-- Lifestyle Section -->
+   <section class="w-full px-6 py-16" style="background-color: #ffffff;">
+    <div class="max-w-6xl mx-auto">
+     <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+       <h2 class="font-display text-3xl md:text-4xl font-bold mb-6" style="color: #2d5a47;">A Community Built for Modern Living</h2>
+       <p class="text-lg leading-relaxed mb-8" style="color: #5a6b5e;">Live in a community that promotes smarter living, lower utility costs, and a healthier environment—without sacrificing comfort and style. At Paseo de Lipa, every detail is designed to enhance your family's quality of life.</p>
+       <div class="flex flex-wrap gap-4"><span class="px-4 py-2 rounded-full text-sm font-medium" style="background-color: #f8f6f3; color: #2d5a47;">🌿 Green Spaces</span> <span class="px-4 py-2 rounded-full text-sm font-medium" style="background-color: #f8f6f3; color: #2d5a47;">🏃 Active Lifestyle</span> <span class="px-4 py-2 rounded-full text-sm font-medium" style="background-color: #f8f6f3; color: #2d5a47;">👨‍👩‍👧‍👦 Family-Friendly</span> <span class="px-4 py-2 rounded-full text-sm font-medium" style="background-color: #f8f6f3; color: #2d5a47;">🔒 24/7 Security</span>
+       </div>
       </div>
-      <div><label for="email" class="form-label">Email Address</label> <input type="email" id="email" class="form-input" placeholder="Enter your email address">
+      <div class="grid grid-cols-2 gap-4">
+       <div class="rounded-xl overflow-hidden aspect-square" style="background: linear-gradient(145deg, #e8e4de, #d4cfc6);">
+        <svg class="w-full h-full" viewbox="0 0 200 200" fill="none"><rect width="200" height="200" fill="#e8e4de" /> <circle cx="100" cy="80" r="40" stroke="#2d5a47" stroke-width="2" fill="none" opacity="0.3" /> <path d="M40 180Q70 120 100 180Q130 120 160 180" stroke="#2d5a47" stroke-width="2" fill="none" opacity="0.3" /> <text x="100" y="105" text-anchor="middle" fill="#2d5a47" font-size="10" opacity="0.5">
+          Community
+         </text>
+        </svg>
+       </div>
+       <div class="rounded-xl overflow-hidden aspect-square mt-8" style="background: linear-gradient(145deg, #d4cfc6, #c4bfb6);">
+        <svg class="w-full h-full" viewbox="0 0 200 200" fill="none"><rect width="200" height="200" fill="#d4cfc6" /> <path d="M60 140L100 60L140 140" stroke="#2d5a47" stroke-width="2" fill="none" opacity="0.3" /> <circle cx="100" cy="150" r="30" stroke="#2d5a47" stroke-width="2" fill="none" opacity="0.3" /> <text x="100" y="105" text-anchor="middle" fill="#2d5a47" font-size="10" opacity="0.5">
+          Greenery
+         </text>
+        </svg>
+       </div>
+       <div class="rounded-xl overflow-hidden aspect-square" style="background: linear-gradient(145deg, #d4cfc6, #c4bfb6);">
+        <svg class="w-full h-full" viewbox="0 0 200 200" fill="none"><rect width="200" height="200" fill="#d4cfc6" /> <rect x="50" y="80" width="100" height="70" rx="8" stroke="#2d5a47" stroke-width="2" fill="none" opacity="0.3" /> <circle cx="100" cy="60" r="20" stroke="#2d5a47" stroke-width="2" fill="none" opacity="0.3" /> <text x="100" y="105" text-anchor="middle" fill="#2d5a47" font-size="10" opacity="0.5">
+          Lifestyle
+         </text>
+        </svg>
+       </div>
+       <div class="rounded-xl overflow-hidden aspect-square mt-8" style="background: linear-gradient(145deg, #e8e4de, #d4cfc6);">
+        <svg class="w-full h-full" viewbox="0 0 200 200" fill="none"><rect width="200" height="200" fill="#e8e4de" /> <path d="M50 150L100 50L150 150Z" stroke="#2d5a47" stroke-width="2" fill="none" opacity="0.3" /> <rect x="85" y="110" width="30" height="40" stroke="#2d5a47" stroke-width="1.5" fill="none" opacity="0.3" /> <text x="100" y="85" text-anchor="middle" fill="#2d5a47" font-size="10" opacity="0.5">
+          Modern Homes
+         </text>
+        </svg>
+       </div>
       </div>
-      <div><label for="mobile" class="form-label">Mobile Number</label> <input type="tel" id="mobile" class="form-input" placeholder="Enter your mobile number (e.g., 0917 xxx xxxx)">
-      </div><button type="submit" id="form-button" class="btn-primary w-full text-center" style="padding: 18px 32px;"> Request Price List &amp; Brochure </button>
-      <p class="text-center text-sm" style="color: #888;">🔒 Your information is private and secure. We respect your privacy.</p>
+     </div>
+    </div>
+   </section><!-- Final CTA Section -->
+   <section class="w-full px-6 py-20" style="background: linear-gradient(135deg, #f8f6f3 0%, #e8e4de 100%);">
+    <div class="max-w-3xl mx-auto text-center">
+     <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6" style="color: #2d5a47;">Your Future Home in Lipa City Starts Here</h2>
+     <p class="text-lg mb-10" style="color: #5a6b5e;">Take the first step towards smart, sustainable living. Fill out the form below and our team will reach out with site viewing schedules and complete project details.</p><!-- Contact Form -->
+     <form id="contact-form" class="p-8 rounded-2xl card-shadow max-w-lg mx-auto" style="background-color: #ffffff;">
+      <div class="space-y-5">
+       <div class="text-left"><label for="full-name" class="block text-sm font-semibold mb-2" style="color: #2d5a47;">Full Name</label> <input type="text" id="full-name" name="full_name" required class="w-full px-4 py-3 rounded-lg border-2 transition-colors focus:outline-none" style="border-color: #e8e4de; background-color: #f8f6f3;" placeholder="Juan Dela Cruz">
+       </div>
+       <div class="text-left"><label for="email" class="block text-sm font-semibold mb-2" style="color: #2d5a47;">Email Address</label> <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-lg border-2 transition-colors focus:outline-none" style="border-color: #e8e4de; background-color: #f8f6f3;" placeholder="juan@email.com">
+       </div>
+       <div class="text-left"><label for="contact-number" class="block text-sm font-semibold mb-2" style="color: #2d5a47;">Contact Number</label> <input type="tel" id="contact-number" name="contact_number" required class="w-full px-4 py-3 rounded-lg border-2 transition-colors focus:outline-none" style="border-color: #e8e4de; background-color: #f8f6f3;" placeholder="09XX XXX XXXX">
+       </div><button type="submit" id="submit-btn" class="btn-primary w-full py-4 rounded-full text-lg font-semibold text-white mt-4" style="background-color: #c9a86c;"> <span id="submit-text">Inquire Now</span> <span id="submit-loading" class="hidden">
+         <svg class="animate-spin inline w-5 h-5 mr-2" fill="none" viewbox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" /> <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+         </svg> Sending... </span> </button>
+      </div>
      </form>
-     <div id="form-success" class="hidden text-center py-8">
-      <div class="w-20 h-20 mx-auto mb-4 rounded-full flex items-center justify-center" style="background: rgba(45, 90, 61, 0.1);"><span class="text-4xl">✅</span>
-      </div>
-      <h3 class="font-display text-2xl font-bold mb-2" style="color: var(--color-primary);">Thank You!</h3>
-      <p style="color: #666;">We've received your inquiry. Our team will contact you shortly.</p>
+    </div>
+   </section><!-- Footer -->
+   <footer class="w-full px-6 py-8" style="background-color: #2d5a47;">
+    <div class="max-w-6xl mx-auto text-center">
+     <div class="flex items-center justify-center gap-3 mb-4">
+      <svg width="32" height="32" viewbox="0 0 40 40" fill="none"><rect width="40" height="40" rx="8" fill="#c9a86c" /> <path d="M20 8L32 16V32H8V16L20 8Z" stroke="#2d5a47" stroke-width="2" fill="none" /> <rect x="16" y="22" width="8" height="10" stroke="#2d5a47" stroke-width="1.5" fill="none" />
+      </svg><span class="font-display text-xl font-semibold" style="color: #ffffff;">Paseo de Lipa</span>
      </div>
+     <p id="footer-note" class="text-sm" style="color: #a8c4b5;">For site viewing, sample computations, and full project details.</p>
+     <p class="text-xs mt-4" style="color: #6b8f7a;">Lipa City, Batangas • Smart, Sustainable Living</p>
+    </div>
+   </footer><!-- Modal -->
+   <div id="inquiry-modal" class="fixed inset-0 z-50 hidden">
+    <div class="modal-backdrop absolute inset-0" onclick="closeModal()"></div>
+    <div class="absolute inset-0 flex items-center justify-center p-4 pointer-events-none">
+     <div class="relative w-full max-w-md p-8 rounded-2xl pointer-events-auto" style="background-color: #ffffff;"><button onclick="closeModal()" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full" style="background-color: #f8f6f3;">
+       <svg width="16" height="16" viewbox="0 0 16 16" fill="none"><path d="M4 4L12 12M12 4L4 12" stroke="#2d5a47" stroke-width="2" stroke-linecap="round" />
+       </svg></button>
+      <h3 class="font-display text-2xl font-bold mb-2" style="color: #2d5a47;">Inquire Now</h3>
+      <p id="modal-subtitle" class="text-sm mb-6" style="color: #5a6b5e;">Fill out the form and we'll get back to you shortly.</p>
+      <form id="modal-form" class="space-y-4"><input type="hidden" id="modal-inquiry-type" value="General Inquiry">
+       <div><label for="modal-name" class="block text-sm font-semibold mb-2" style="color: #2d5a47;">Full Name</label> <input type="text" id="modal-name" required class="w-full px-4 py-3 rounded-lg border-2 focus:outline-none" style="border-color: #e8e4de; background-color: #f8f6f3;" placeholder="Juan Dela Cruz">
+       </div>
+       <div><label for="modal-email" class="block text-sm font-semibold mb-2" style="color: #2d5a47;">Email Address</label> <input type="email" id="modal-email" required class="w-full px-4 py-3 rounded-lg border-2 focus:outline-none" style="border-color: #e8e4de; background-color: #f8f6f3;" placeholder="juan@email.com">
+       </div>
+       <div><label for="modal-contact" class="block text-sm font-semibold mb-2" style="color: #2d5a47;">Contact Number</label> <input type="tel" id="modal-contact" required class="w-full px-4 py-3 rounded-lg border-2 focus:outline-none" style="border-color: #e8e4de; background-color: #f8f6f3;" placeholder="09XX XXX XXXX">
+       </div><button type="submit" id="modal-submit-btn" class="btn-primary w-full py-3 rounded-full font-semibold text-white" style="background-color: #c9a86c;"> <span id="modal-submit-text">Submit Inquiry</span> <span id="modal-submit-loading" class="hidden">
+         <svg class="animate-spin inline w-5 h-5 mr-2" fill="none" viewbox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" /> <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+         </svg> Sending... </span> </button>
+      </form>
+     </div>
+    </div>
+   </div><!-- Toast Notification -->
+   <div id="toast" class="fixed top-4 right-4 z-50 hidden">
+    <div class="px-6 py-4 rounded-xl card-shadow flex items-center gap-3" style="background-color: #2d5a47;">
+     <svg class="w-6 h-6" fill="#c9a86c" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+     </svg><span id="toast-message" class="text-white font-medium">Inquiry submitted successfully!</span>
     </div>
    </div>
-  </section><!-- Project Highlights Section -->
-  <section class="section-padding" style="background: var(--color-background);">
-   <div class="max-w-7xl mx-auto">
-    <div class="text-center mb-12">
-     <h2 class="font-display text-3xl md:text-4xl font-bold mb-4" style="color: var(--color-text);">Why Choose Paseo De Lipa?</h2>
-     <p class="text-lg max-w-2xl mx-auto" style="color: #666;">Discover what makes our community the perfect place to call home</p>
-    </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-     <div class="highlight-card">
-      <div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style="background: rgba(45, 90, 61, 0.1);">
-       <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" style="color: var(--color-primary);" fill="none" viewbox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /> <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-       </svg>
-      </div>
-      <h3 id="highlight-1" class="font-display text-xl font-bold mb-2" style="color: var(--color-text);">Prime Lipa City Location</h3>
-      <p style="color: #666;">Strategic location with easy access to major roads and establishments</p>
-     </div>
-     <div class="highlight-card">
-      <div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style="background: rgba(45, 90, 61, 0.1);">
-       <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" style="color: var(--color-primary);" fill="none" viewbox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-       </svg>
-      </div>
-      <h3 id="highlight-2" class="font-display text-xl font-bold mb-2" style="color: var(--color-text);">Secure Gated Community</h3>
-      <p style="color: #666;">24/7 security with controlled access for your peace of mind</p>
-     </div>
-     <div class="highlight-card">
-      <div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style="background: rgba(45, 90, 61, 0.1);">
-       <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" style="color: var(--color-primary);" fill="none" viewbox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-       </svg>
-      </div>
-      <h3 id="highlight-3" class="font-display text-xl font-bold mb-2" style="color: var(--color-text);">Family-Friendly Amenities</h3>
-      <p style="color: #666;">Parks, playgrounds, and open spaces for the whole family</p>
-     </div>
-     <div class="highlight-card">
-      <div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style="background: rgba(45, 90, 61, 0.1);">
-       <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" style="color: var(--color-primary);" fill="none" viewbox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-       </svg>
-      </div>
-      <h3 id="highlight-4" class="font-display text-xl font-bold mb-2" style="color: var(--color-text);">Ideal for End-Use &amp; Investment</h3>
-      <p style="color: #666;">High appreciation potential in a growing city</p>
-     </div>
-     <div class="highlight-card">
-      <div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style="background: rgba(45, 90, 61, 0.1);">
-       <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" style="color: var(--color-primary);" fill="none" viewbox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z" /> <polyline points="17 21 17 13 7 13 7 21" /> <polyline points="7 3 7 8 17 8" />
-       </svg>
-      </div>
-      <h3 id="highlight-5" class="font-display text-xl font-bold mb-2" style="color: var(--color-text);">100 Hectare Master-Planned Community</h3>
-      <p style="color: #666;">Mixed-use development with commercial zones and country club</p>
-     </div>
-    </div>
-   </div>
-  </section><!-- House Models Section -->
-  <section id="house-models" class="section-padding" style="background: var(--color-surface);">
-   <div class="max-w-7xl mx-auto">
-    <div class="text-center mb-12">
-     <h2 class="font-display text-3xl md:text-4xl font-bold mb-4" style="color: var(--color-text);">Available House Models</h2>
-     <p class="text-lg max-w-2xl mx-auto" style="color: #666;">Choose the perfect home design for your family</p>
-    </div>
-    <div class="grid md:grid-cols-2 gap-8"><!-- House Model 1 -->
-     <div class="card"><img src="https://www.cbdi.com.ph/wp-content/uploads/2025/11/affordable-house-and-lot-for-sale-in-batangas-1.jpg" alt="Larissa - Single Attached" loading="lazy" class="h-64 w-full object-cover" style="background: #e5e7eb;" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb';">
-      <div class="p-6">
-       <div class="flex items-center justify-between mb-4">
-        <h3 id="model-1-name" class="font-display text-2xl font-bold" style="color: var(--color-text);">Larissa - Single Attached</h3><span class="px-3 py-1 rounded-full text-sm font-semibold" style="background: rgba(45, 90, 61, 0.1); color: var(--color-primary);">Available</span>
-       </div>
-       <div class="grid grid-cols-2 gap-4 mb-6">
-        <div class="p-4 rounded-lg" style="background: var(--color-background);">
-         <div class="text-sm" style="color: #888;">
-          Floor Area
-         </div>
-         <div class="font-bold text-lg" style="color: var(--color-text);">
-          90 sqm
-         </div>
-        </div>
-        <div class="p-4 rounded-lg" style="background: var(--color-background);">
-         <div class="text-sm" style="color: #888;">
-          Lot Area
-         </div>
-         <div class="font-bold text-lg" style="color: var(--color-text);">
-          100 sqm
-         </div>
-        </div>
-        <div class="p-4 rounded-lg" style="background: var(--color-background);">
-         <div class="text-sm" style="color: #888;">
-          Bedrooms
-         </div>
-         <div class="font-bold text-lg" style="color: var(--color-text);">
-          4 BR
-         </div>
-        </div>
-        <div class="p-4 rounded-lg" style="background: var(--color-background);">
-         <div class="text-sm" style="color: #888;">
-          Bathrooms
-         </div>
-         <div class="font-bold text-lg" style="color: var(--color-text);">
-          2 T&amp;B
-         </div>
-        </div>
-       </div><a href="#contact-form" class="btn-primary w-full text-center block">Inquire This Model</a>
-      </div>
-     </div><!-- House Model 2 -->
-     <div class="card"><img src="https://www.cbdi.com.ph/wp-content/uploads/2025/11/affordable-house-and-lot-for-sale-in-batangas-8.jpg" alt="Model B - Fortuna" loading="lazy" class="h-64 w-full object-cover" style="background: #e5e7eb;" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb';">
-      <div class="p-6">
-       <div class="flex items-center justify-between mb-4">
-        <h3 id="model-2-name" class="font-display text-2xl font-bold" style="color: var(--color-text);">Model B - Fortuna</h3><span class="px-3 py-1 rounded-full text-sm font-semibold" style="background: rgba(45, 90, 61, 0.1); color: var(--color-primary);">Available</span>
-       </div>
-       <div class="grid grid-cols-2 gap-4 mb-6">
-        <div class="p-4 rounded-lg" style="background: var(--color-background);">
-         <div class="text-sm" style="color: #888;">
-          Floor Area
-         </div>
-         <div class="font-bold text-lg" style="color: var(--color-text);">
-          62 sqm
-         </div>
-        </div>
-        <div class="p-4 rounded-lg" style="background: var(--color-background);">
-         <div class="text-sm" style="color: #888;">
-          Lot Area
-         </div>
-         <div class="font-bold text-lg" style="color: var(--color-text);">
-          60-84 sqm
-         </div>
-        </div>
-        <div class="p-4 rounded-lg" style="background: var(--color-background);">
-         <div class="text-sm" style="color: #888;">
-          Bedrooms
-         </div>
-         <div class="font-bold text-lg" style="color: var(--color-text);">
-          3 BR
-         </div>
-        </div>
-        <div class="p-4 rounded-lg" style="background: var(--color-background);">
-         <div class="text-sm" style="color: #888;">
-          Bathrooms
-         </div>
-         <div class="font-bold text-lg" style="color: var(--color-text);">
-          2 T&amp;B
-         </div>
-        </div>
-       </div><a href="#contact-form" class="btn-primary w-full text-center block">Inquire This Model</a>
-      </div>
-     </div>
-    </div>
-   </div>
-  </section><!-- Eco-Smart Features Section -->
-  <section class="section-padding" style="background: linear-gradient(135deg, #f0f7f1 0%, #e8f0e8 100%);">
-   <div class="max-w-7xl mx-auto">
-    <div class="text-center mb-12">
-     <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4" style="background: rgba(45, 90, 61, 0.15); color: var(--color-primary);"><span class="text-xl">🌿</span> <span class="font-semibold">Eco-Smart Technology</span>
-     </div>
-     <h2 id="eco-headline" class="font-display text-3xl md:text-4xl font-bold mb-4" style="color: var(--color-text);">Eco-Smart Features That Lower Your Monthly Bills</h2>
-     <p class="text-lg max-w-2xl mx-auto" style="color: #666;">Live sustainably while saving money every month</p>
-    </div>
-    <div class="grid md:grid-cols-2 gap-8">
-     <div class="eco-card">
-      <div class="flex items-start gap-4">
-       <div class="w-16 h-16 flex-shrink-0 rounded-xl flex items-center justify-center" style="background: var(--color-primary);">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" fill="none" viewbox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-        </svg>
-       </div>
-       <div>
-        <h3 class="font-display text-xl font-bold mb-2" style="color: var(--color-text);">Net Metered Solar Panel System</h3>
-        <p class="mb-4" style="color: #666;">Harness the power of the sun to generate clean energy for your home</p>
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-lg" style="background: white;"><span class="text-2xl">⚡</span> <span class="font-bold" style="color: var(--color-primary);">Helps reduce electricity bill by up to 30%</span>
-        </div>
-       </div>
-      </div>
-     </div>
-     <div class="eco-card">
-      <div class="flex items-start gap-4">
-       <div class="w-16 h-16 flex-shrink-0 rounded-xl flex items-center justify-center" style="background: var(--color-primary);">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" fill="none" viewbox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-        </svg>
-       </div>
-       <div>
-        <h3 class="font-display text-xl font-bold mb-2" style="color: var(--color-text);">Rainwater &amp; Freshwater Harvesting Tank</h3>
-        <p class="mb-4" style="color: #666;">Collect and store rainwater for household use, reducing dependency on main water supply</p>
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-lg" style="background: white;"><span class="text-2xl">💧</span> <span class="font-bold" style="color: var(--color-primary);">Helps reduce water bill by up to 35%</span>
-        </div>
-       </div>
-      </div>
-     </div>
-    </div>
-   </div>
-  </section><!-- Benefits Section -->
-  <section class="section-padding" style="background: var(--color-surface);">
-   <div class="max-w-4xl mx-auto">
-    <div class="text-center mb-12">
-     <h2 class="font-display text-3xl md:text-4xl font-bold mb-4" style="color: var(--color-text);">Benefits of Eco-Smart Living</h2>
-    </div>
-    <div class="bg-white rounded-2xl p-8 shadow-lg" style="background: var(--color-background);">
-     <div class="benefit-item">
-      <div class="w-12 h-12 flex-shrink-0 rounded-full flex items-center justify-center" style="background: var(--color-primary);"><span class="text-xl">💰</span>
-      </div>
-      <div>
-       <h3 class="font-bold text-lg" style="color: var(--color-text);">Lower Monthly Utility Costs</h3>
-       <p style="color: #666;">Save thousands of pesos annually on electricity and water bills</p>
-      </div>
-     </div>
-     <div class="benefit-item">
-      <div class="w-12 h-12 flex-shrink-0 rounded-full flex items-center justify-center" style="background: var(--color-primary);"><span class="text-xl">🌱</span>
-      </div>
-      <div>
-       <h3 class="font-bold text-lg" style="color: var(--color-text);">Sustainable &amp; Eco-Friendly Living</h3>
-       <p style="color: #666;">Reduce your carbon footprint and contribute to a healthier planet</p>
-      </div>
-     </div>
-     <div class="benefit-item">
-      <div class="w-12 h-12 flex-shrink-0 rounded-full flex items-center justify-center" style="background: var(--color-primary);"><span class="text-xl">📈</span>
-      </div>
-      <div>
-       <h3 class="font-bold text-lg" style="color: var(--color-text);">Higher Property Value</h3>
-       <p style="color: #666;">Eco-smart features increase your home's market value over time</p>
-      </div>
-     </div>
-     <div class="benefit-item">
-      <div class="w-12 h-12 flex-shrink-0 rounded-full flex items-center justify-center" style="background: var(--color-primary);"><span class="text-xl">🏦</span>
-      </div>
-      <div>
-       <h3 class="font-bold text-lg" style="color: var(--color-text);">Smart Long-Term Investment</h3>
-       <p style="color: #666;">Secure your family's future with a home that pays for itself</p>
-      </div>
-     </div>
-    </div>
-   </div>
-  </section><!-- Final CTA Section -->
-  <section class="section-padding" style="background: linear-gradient(135deg, var(--color-secondary) 0%, #a88a5c 100%);">
-   <div class="max-w-4xl mx-auto">
-    <div class="text-center mb-10">
-     <h2 id="cta-headline" class="font-display text-3xl md:text-4xl font-bold text-white mb-4">Get Exclusive Details on Paseo De Lipa Today</h2>
-     <p class="text-lg" style="color: rgba(255,255,255,0.9);">Don't miss this opportunity to own an eco-smart home</p>
-    </div>
-    <div class="bg-white rounded-2xl p-8 md:p-10 shadow-2xl">
-     <form id="cta-form" class="space-y-6">
-      <div><label for="cta-name" class="form-label">Full Name</label> <input type="text" id="cta-name" class="form-input" placeholder="Enter your full name">
-      </div>
-      <div><label for="cta-email" class="form-label">Email Address</label> <input type="email" id="cta-email" class="form-input" placeholder="Enter your email address">
-      </div>
-      <div><label for="cta-mobile" class="form-label">Mobile Number</label> <input type="tel" id="cta-mobile" class="form-input" placeholder="Enter your mobile number (e.g., 0917 xxx xxxx)">
-      </div><button type="submit" class="btn-primary w-full text-center" style="padding: 18px 32px;"> Get Brochure &amp; Availability </button>
-      <p class="text-center text-sm" style="color: #888;">🔒 Your information is private and secure</p>
-     </form>
-     <div id="cta-form-success" class="hidden text-center py-8">
-      <div class="w-20 h-20 mx-auto mb-4 rounded-full flex items-center justify-center" style="background: rgba(45, 90, 61, 0.1);"><span class="text-4xl">✅</span>
-      </div>
-      <h3 class="font-display text-2xl font-bold mb-2" style="color: var(--color-primary);">Thank You!</h3>
-      <p style="color: #666;">We've received your inquiry. Our team will contact you shortly.</p>
-     </div>
-    </div>
-   </div>
-  </section><!-- Footer -->
-  <footer style="background: #2a2a2a; color: white;" class="py-12 px-5">
-   <div class="max-w-7xl mx-auto">
-    <div class="grid md:grid-cols-3 gap-8 mb-8">
-     <div>
-      <div class="flex items-center gap-3 mb-4">
-       <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: var(--color-primary);">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-white" fill="none" viewbox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-        </svg>
-       </div>
-       <div>
-        <h3 class="font-display font-bold text-xl">Paseo De Lipa</h3>
-        <p class="text-sm" style="color: var(--color-secondary);">Eco-Smart Living</p>
-       </div>
-      </div>
-      <p style="color: #aaa;">Your gateway to sustainable, modern living in the heart of Lipa City, Batangas.</p>
-     </div>
-     <div>
-      <h4 class="font-display font-bold text-lg mb-4">Contact Information</h4>
-      <div id="footer-contact" class="space-y-2" style="color: #aaa;">
-       <p>📍 Lipa City, Batangas, Philippines</p>
-       <p>📞 +63 XXX XXX XXXX</p>
-       <p>✉️ info@paseodelipa.com</p>
-      </div>
-     </div>
-     <div>
-      <h4 class="font-display font-bold text-lg mb-4">Developer</h4><img src="https://i0.wp.com/www.cbdi.com.ph/wp-content/uploads/2024/03/cbdzdi1.png?fit=261%2C79&amp;ssl=1" alt="Developer Logo" loading="lazy" class="h-12" style="object-fit: contain;" onerror="console.error('Logo failed to load:', this.src); this.style.display='none';">
-     </div>
-    </div>
-    <div class="pt-8" style="border-top: 1px solid #444;">
-     <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-      <p class="text-sm" style="color: #888;">© 2024 Paseo De Lipa. All rights reserved.</p>
-      <div class="flex items-center gap-6"><a href="#" class="text-sm hover:underline" style="color: #aaa;">Privacy Policy</a> <a href="#" class="text-sm hover:underline" style="color: #aaa;">Terms of Service</a>
-      </div>
-     </div>
-    </div>
-   </div>
-  </footer>
+  </div>
   <script>
+    // Default configuration
     const defaultConfig = {
-      hero_headline: 'Own a Modern, Eco-Smart Home at Paseo De Lipa',
-      hero_subheadline: 'Save up to 30% on electricity and 35% on water bills with sustainable home features',
-      hero_button_text: 'Get Full Details',
-      form_headline: 'Get Exclusive Pricing & Availability',
-      form_button_text: 'Request Price List & Brochure',
-      highlight_1: 'Prime Lipa City Location',
-      highlight_2: 'Secure Gated Community',
-      highlight_3: 'Family-Friendly Amenities',
-      highlight_4: 'Ideal for End-Use & Investment',
-      highlight_5: '100 Hectare Master-Planned Community',
-      model_1_name: 'Larissa - Single Attached',
-      model_2_name: 'Levana - Townhouse',
-      eco_headline: 'Eco-Smart Features That Lower Your Monthly Bills',
-      cta_headline: 'Get Exclusive Details on Paseo De Lipa Today',
-      footer_contact: '📍 Lipa City, Batangas, Philippines\n📞 +63 921 254 4429\n✉️ parkres_christian@yahoo.com',
-      background_color: '#FAF7F2',
-      surface_color: '#FFFFFF',
-      text_color: '#3D3D3D',
-      primary_color: '#2D5A3D',
-      secondary_color: '#C4A77D',
-      font_family: 'Source Sans 3',
-      font_size: 16
+      headline: 'Paseo de Lipa – Smart, Sustainable Living in Lipa City',
+      subheadline: 'A thoughtfully planned residential community designed for comfort, savings, and long-term value.',
+      cta_text: 'Inquire Now',
+      benefits_title: 'Why Choose Paseo de Lipa',
+      models_title: 'Choose Your Ideal Home',
+      sustainable_title: 'Built for Sustainable Living',
+      footer_note: 'For site viewing, sample computations, and full project details.',
+      background_color: '#f8f6f3',
+      primary_color: '#2d5a47',
+      accent_color: '#c9a86c',
+      text_color: '#5a6b5e',
+      surface_color: '#ffffff',
+      font_family: 'Cormorant Garamond'
     };
 
     let config = { ...defaultConfig };
-    let allContacts = [];
+    let inquiries = [];
+    let recordCount = 0;
 
     // Data SDK handler
     const dataHandler = {
       onDataChanged(data) {
-        allContacts = data;
+        inquiries = data;
+        recordCount = data.length;
       }
     };
 
-    // Initialize Data SDK
-    async function initDataSDK() {
-      if (window.dataSdk) {
-        const result = await window.dataSdk.init(dataHandler);
-        if (!result.isOk) {
-          console.error('Failed to initialize Data SDK');
-        }
-      }
-    }
-
-    initDataSDK();
-
-    async function onConfigChange(newConfig) {
-      config = { ...config, ...newConfig };
-
-      // Update text content
-      document.getElementById('hero-headline').textContent = config.hero_headline || defaultConfig.hero_headline;
-      document.getElementById('hero-subheadline').textContent = config.hero_subheadline || defaultConfig.hero_subheadline;
-      document.getElementById('hero-button').textContent = config.hero_button_text || defaultConfig.hero_button_text;
-      document.getElementById('form-headline').textContent = config.form_headline || defaultConfig.form_headline;
-      document.getElementById('form-button').textContent = config.form_button_text || defaultConfig.form_button_text;
-      document.getElementById('highlight-1').textContent = config.highlight_1 || defaultConfig.highlight_1;
-      document.getElementById('highlight-2').textContent = config.highlight_2 || defaultConfig.highlight_2;
-      document.getElementById('highlight-3').textContent = config.highlight_3 || defaultConfig.highlight_3;
-      document.getElementById('highlight-4').textContent = config.highlight_4 || defaultConfig.highlight_4;
-      document.getElementById('highlight-5').textContent = config.highlight_5 || defaultConfig.highlight_5;
-      document.getElementById('model-1-name').textContent = config.model_1_name || defaultConfig.model_1_name;
-      document.getElementById('model-2-name').textContent = config.model_2_name || defaultConfig.model_2_name;
-      document.getElementById('eco-headline').textContent = config.eco_headline || defaultConfig.eco_headline;
-      document.getElementById('cta-headline').textContent = config.cta_headline || defaultConfig.cta_headline;
+    // Element SDK functions
+    function onConfigChange(cfg) {
+      config = { ...defaultConfig, ...cfg };
       
-      // Update footer contact
-      const footerContact = document.getElementById('footer-contact');
-      const contactLines = (config.footer_contact || defaultConfig.footer_contact).split('\n');
-      footerContact.innerHTML = contactLines.map(line => `<p>${line}</p>`).join('');
+      // Update text content
+      document.getElementById('headline').textContent = config.headline || defaultConfig.headline;
+      document.getElementById('subheadline').textContent = config.subheadline || defaultConfig.subheadline;
+      document.getElementById('benefits-title').textContent = config.benefits_title || defaultConfig.benefits_title;
+      document.getElementById('models-title').textContent = config.models_title || defaultConfig.models_title;
+      document.getElementById('sustainable-title').textContent = config.sustainable_title || defaultConfig.sustainable_title;
+      document.getElementById('footer-note').textContent = config.footer_note || defaultConfig.footer_note;
+      
+      // Update CTA buttons
+      const ctaText = config.cta_text || defaultConfig.cta_text;
+      document.getElementById('hero-cta').textContent = ctaText;
+      document.getElementById('nav-cta').textContent = ctaText;
+      document.getElementById('submit-text').textContent = ctaText;
 
       // Update colors
       const bgColor = config.background_color || defaultConfig.background_color;
-      const surfaceColor = config.surface_color || defaultConfig.surface_color;
-      const textColor = config.text_color || defaultConfig.text_color;
       const primaryColor = config.primary_color || defaultConfig.primary_color;
-      const secondaryColor = config.secondary_color || defaultConfig.secondary_color;
+      const accentColor = config.accent_color || defaultConfig.accent_color;
+      const textColor = config.text_color || defaultConfig.text_color;
+      const surfaceColor = config.surface_color || defaultConfig.surface_color;
 
-      document.documentElement.style.setProperty('--color-background', bgColor);
-      document.documentElement.style.setProperty('--color-surface', surfaceColor);
-      document.documentElement.style.setProperty('--color-text', textColor);
-      document.documentElement.style.setProperty('--color-primary', primaryColor);
-      document.documentElement.style.setProperty('--color-secondary', secondaryColor);
-
+      document.getElementById('app-wrapper').style.backgroundColor = bgColor;
+      
       // Update font
       const fontFamily = config.font_family || defaultConfig.font_family;
-      const baseFontStack = 'Arial, sans-serif';
-      document.body.style.fontFamily = `${fontFamily}, ${baseFontStack}`;
-
-      // Update font size
-      const baseSize = config.font_size || defaultConfig.font_size;
-      document.documentElement.style.fontSize = `${baseSize}px`;
+      document.querySelectorAll('.font-display').forEach(el => {
+        el.style.fontFamily = `${fontFamily}, serif`;
+      });
     }
 
     function mapToCapabilities(cfg) {
@@ -696,36 +370,36 @@
           {
             get: () => cfg.background_color || defaultConfig.background_color,
             set: (value) => {
-              cfg.background_color = value;
-              window.elementSdk.setConfig({ background_color: value });
+              config.background_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ background_color: value });
             }
           },
           {
             get: () => cfg.surface_color || defaultConfig.surface_color,
             set: (value) => {
-              cfg.surface_color = value;
-              window.elementSdk.setConfig({ surface_color: value });
+              config.surface_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ surface_color: value });
             }
           },
           {
             get: () => cfg.text_color || defaultConfig.text_color,
             set: (value) => {
-              cfg.text_color = value;
-              window.elementSdk.setConfig({ text_color: value });
+              config.text_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ text_color: value });
             }
           },
           {
             get: () => cfg.primary_color || defaultConfig.primary_color,
             set: (value) => {
-              cfg.primary_color = value;
-              window.elementSdk.setConfig({ primary_color: value });
+              config.primary_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ primary_color: value });
             }
           },
           {
-            get: () => cfg.secondary_color || defaultConfig.secondary_color,
+            get: () => cfg.accent_color || defaultConfig.accent_color,
             set: (value) => {
-              cfg.secondary_color = value;
-              window.elementSdk.setConfig({ secondary_color: value });
+              config.accent_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ accent_color: value });
             }
           }
         ],
@@ -733,140 +407,179 @@
         fontEditable: {
           get: () => cfg.font_family || defaultConfig.font_family,
           set: (value) => {
-            cfg.font_family = value;
-            window.elementSdk.setConfig({ font_family: value });
+            config.font_family = value;
+            if (window.elementSdk) window.elementSdk.setConfig({ font_family: value });
           }
         },
-        fontSizeable: {
-          get: () => cfg.font_size || defaultConfig.font_size,
-          set: (value) => {
-            cfg.font_size = value;
-            window.elementSdk.setConfig({ font_size: value });
-          }
-        }
+        fontSizeable: undefined
       };
     }
 
     function mapToEditPanelValues(cfg) {
       return new Map([
-        ['hero_headline', cfg.hero_headline || defaultConfig.hero_headline],
-        ['hero_subheadline', cfg.hero_subheadline || defaultConfig.hero_subheadline],
-        ['hero_button_text', cfg.hero_button_text || defaultConfig.hero_button_text],
-        ['form_headline', cfg.form_headline || defaultConfig.form_headline],
-        ['form_button_text', cfg.form_button_text || defaultConfig.form_button_text],
-        ['highlight_1', cfg.highlight_1 || defaultConfig.highlight_1],
-        ['highlight_2', cfg.highlight_2 || defaultConfig.highlight_2],
-        ['highlight_3', cfg.highlight_3 || defaultConfig.highlight_3],
-        ['highlight_4', cfg.highlight_4 || defaultConfig.highlight_4],
-        ['highlight_5', cfg.highlight_5 || defaultConfig.highlight_5],
-        ['model_1_name', cfg.model_1_name || defaultConfig.model_1_name],
-        ['model_2_name', cfg.model_2_name || defaultConfig.model_2_name],
-        ['eco_headline', cfg.eco_headline || defaultConfig.eco_headline],
-        ['cta_headline', cfg.cta_headline || defaultConfig.cta_headline],
-        ['footer_contact', cfg.footer_contact || defaultConfig.footer_contact]
+        ['headline', cfg.headline || defaultConfig.headline],
+        ['subheadline', cfg.subheadline || defaultConfig.subheadline],
+        ['cta_text', cfg.cta_text || defaultConfig.cta_text],
+        ['benefits_title', cfg.benefits_title || defaultConfig.benefits_title],
+        ['models_title', cfg.models_title || defaultConfig.models_title],
+        ['sustainable_title', cfg.sustainable_title || defaultConfig.sustainable_title],
+        ['footer_note', cfg.footer_note || defaultConfig.footer_note]
       ]);
     }
 
-    // Initialize Element SDK
-    if (window.elementSdk) {
-      window.elementSdk.init({
-        defaultConfig,
-        onConfigChange,
-        mapToCapabilities,
-        mapToEditPanelValues
+    // Modal functions
+    function openModal(inquiryType = 'General Inquiry') {
+      const modal = document.getElementById('inquiry-modal');
+      const subtitle = document.getElementById('modal-subtitle');
+      document.getElementById('modal-inquiry-type').value = inquiryType;
+      
+      if (inquiryType.includes('Model Unit')) {
+        subtitle.textContent = `Interested in ${inquiryType}? Fill out the form for detailed information.`;
+      } else {
+        subtitle.textContent = "Fill out the form and we'll get back to you shortly.";
+      }
+      
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('inquiry-modal');
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+      document.getElementById('modal-form').reset();
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-message').textContent = message;
+      toast.classList.remove('hidden');
+      toast.classList.add('toast');
+      
+      setTimeout(() => {
+        toast.classList.add('hidden');
+        toast.classList.remove('toast');
+      }, 4000);
+    }
+
+    // Form submission
+    async function submitInquiry(name, email, contact, inquiryType) {
+      if (recordCount >= 999) {
+        showToast('Maximum inquiries reached. Please try again later.');
+        return false;
+      }
+
+      const result = await window.dataSdk.create({
+        full_name: name,
+        email: email,
+        contact_number: contact,
+        inquiry_type: inquiryType,
+        submitted_at: new Date().toISOString()
+      });
+
+      if (result.isOk) {
+        showToast('Thank you! We will contact you shortly.');
+        return true;
+      } else {
+        showToast('Something went wrong. Please try again.');
+        return false;
+      }
+    }
+
+    // Initialize
+    async function init() {
+      // Initialize Element SDK
+      if (window.elementSdk) {
+        await window.elementSdk.init({
+          defaultConfig,
+          onConfigChange,
+          mapToCapabilities,
+          mapToEditPanelValues
+        });
+      }
+
+      // Initialize Data SDK
+      if (window.dataSdk) {
+        await window.dataSdk.init(dataHandler);
+      }
+
+      // Initial render
+      onConfigChange(config);
+
+      // Event listeners for CTAs
+      document.getElementById('nav-cta').addEventListener('click', () => openModal());
+      document.getElementById('hero-cta').addEventListener('click', () => openModal());
+
+      // Request Details buttons
+      document.querySelectorAll('.request-details-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const model = btn.getAttribute('data-model');
+          openModal(model);
+        });
+      });
+
+      // Main contact form
+      document.getElementById('contact-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const submitBtn = document.getElementById('submit-btn');
+        const submitText = document.getElementById('submit-text');
+        const submitLoading = document.getElementById('submit-loading');
+        
+        submitBtn.disabled = true;
+        submitText.classList.add('hidden');
+        submitLoading.classList.remove('hidden');
+
+        const name = document.getElementById('full-name').value;
+        const email = document.getElementById('email').value;
+        const contact = document.getElementById('contact-number').value;
+
+        const success = await submitInquiry(name, email, contact, 'General Inquiry');
+        
+        submitBtn.disabled = false;
+        submitText.classList.remove('hidden');
+        submitLoading.classList.add('hidden');
+
+        if (success) {
+          document.getElementById('contact-form').reset();
+        }
+      });
+
+      // Modal form
+      document.getElementById('modal-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const submitBtn = document.getElementById('modal-submit-btn');
+        const submitText = document.getElementById('modal-submit-text');
+        const submitLoading = document.getElementById('modal-submit-loading');
+        
+        submitBtn.disabled = true;
+        submitText.classList.add('hidden');
+        submitLoading.classList.remove('hidden');
+
+        const name = document.getElementById('modal-name').value;
+        const email = document.getElementById('modal-email').value;
+        const contact = document.getElementById('modal-contact').value;
+        const inquiryType = document.getElementById('modal-inquiry-type').value;
+
+        const success = await submitInquiry(name, email, contact, inquiryType);
+        
+        submitBtn.disabled = false;
+        submitText.classList.remove('hidden');
+        submitLoading.classList.add('hidden');
+
+        if (success) {
+          closeModal();
+        }
+      });
+
+      // Close modal on escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
       });
     }
 
-    // Form submission handlers
-    document.getElementById('lead-form').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      
-      const fullName = document.getElementById('full-name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const mobile = document.getElementById('mobile').value.trim();
-
-      if (!fullName || !email || !mobile) {
-        alert('Please fill in all fields');
-        return;
-      }
-
-      // Disable button during submission
-      const submitBtn = this.querySelector('button[type="submit"]');
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Saving...';
-
-      // Save to Canva Sheet
-      if (window.dataSdk) {
-        const result = await window.dataSdk.create({
-          full_name: fullName,
-          email: email,
-          mobile: mobile,
-          submitted_at: new Date().toISOString()
-        });
-
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Request Price List & Brochure';
-
-        if (result.isOk) {
-          document.getElementById('lead-form').classList.add('hidden');
-          document.getElementById('form-success').classList.remove('hidden');
-        } else {
-          alert('There was an error saving your information. Please try again.');
-        }
-      }
-    });
-
-    document.getElementById('cta-form').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      
-      const ctaName = document.getElementById('cta-name').value.trim();
-      const ctaEmail = document.getElementById('cta-email').value.trim();
-      const ctaMobile = document.getElementById('cta-mobile').value.trim();
-
-      if (!ctaName || !ctaEmail || !ctaMobile) {
-        alert('Please fill in all fields');
-        return;
-      }
-
-      // Disable button during submission
-      const submitBtn = this.querySelector('button[type="submit"]');
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Saving...';
-
-      // Save to Canva Sheet
-      if (window.dataSdk) {
-        const result = await window.dataSdk.create({
-          full_name: ctaName,
-          email: ctaEmail,
-          mobile: ctaMobile,
-          submitted_at: new Date().toISOString()
-        });
-
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Get Brochure & Availability';
-
-        if (result.isOk) {
-          document.getElementById('cta-form').classList.add('hidden');
-          document.getElementById('cta-form-success').classList.remove('hidden');
-        } else {
-          alert('There was an error saving your information. Please try again.');
-        }
-      }
-    });
-
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
+    init();
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ccd15c040a09fad',t:'MTc3MDkwOTc4My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ccd147550189fad',t:'MTc3MDkwOTczMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
